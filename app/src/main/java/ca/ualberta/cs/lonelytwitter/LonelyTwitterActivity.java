@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -51,8 +52,16 @@ public class LonelyTwitterActivity extends Activity {
 				}
 
 				String string = tweet.getMessage();
+				CurrentMood angry = new AngryMood();
+				CurrentMood pensive = new PensiveMood();
+				tweet.addMood(angry);
+				tweet.addMood(pensive);
+				normalTweet.addMood(angry);
+				normalTweet.addMood(pensive);
+
 
 				ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
+				ArrayList<CurrentMood> moodList = new ArrayList<CurrentMood>();
 				tweetList.add(tweet);
 				tweetList.add(normalTweet);
 
