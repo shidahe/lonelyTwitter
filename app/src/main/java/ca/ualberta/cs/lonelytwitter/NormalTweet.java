@@ -3,7 +3,13 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by cdkushni on 1/19/17.
+ * Normal tweets are an extension of tweets that are pretty normal
+ * They have the same inherited functions from tweet
+ * They do have an override of isImportant to return false though.
+ *
+ * @author Colin Kushniruk
+ * @version 1.0.1
+ * @since 1.0
  */
 
 
@@ -27,6 +33,11 @@ public class NormalTweet extends Tweet {
         super(date, message);
     }
 
+    /**
+     * Overrides isImportant function for Normal tweets to return false.
+     *
+     * @return false importance
+     */
     @Override
     public Boolean isImportant(){
         return false;

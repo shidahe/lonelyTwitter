@@ -3,7 +3,12 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by cdkushni on 1/19/17.
+ * Important tweet is just an extension of tweet that
+ * will return true if isImportant is called.
+ *
+ * @author Colin Kushniruk
+ * @version 1.0.1
+ * @since 1.0
  */
 public class ImportantTweet extends Tweet {
     /**
@@ -25,6 +30,10 @@ public class ImportantTweet extends Tweet {
         super(date, message);
     }
 
+    /**
+     * This is a override of isImportant in order to return true
+     * @return true importance
+     */
     @Override
     public Boolean isImportant(){
         return true;

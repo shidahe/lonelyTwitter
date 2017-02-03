@@ -34,18 +34,18 @@ import com.google.gson.reflect.TypeToken;
  *         File Explorer -> data -> data -> ca.ualberta.cs.lonelytwitter -> files -> file.sav.
  * </pre>
  * <code> begin <br>
- *     some pseduo code here <br>
+ * some pseduo code here <br>
  * end.</code>
  * The file name is indicated in the &nbsp &nbsp &nbsp FILENAME constant.
  * <ul>
- *     <li>item 1</li>
- *     <li>item 2</li>
- *     <li>item 3</li>
+ * <li>item 1</li>
+ * <li>item 2</li>
+ * <li>item 3</li>
  * </ul>
  * <ol>
- *     <li>item 1</li>
- *     <li>item 2</li>
- *     <li>item 3</li>
+ * <li>item 1</li>
+ * <li>item 2</li>
+ * <li>item 3</li>
  * </ol>
  *
  * @author Colin Kushniruk
@@ -60,8 +60,18 @@ public class LonelyTwitterActivity extends Activity {
 	 * @see #saveInFile()
 	 */
 	private static final String FILENAME = "file.sav";
-	private enum TweetListOrdering {DATE_ASCENDING, DATE_DESCENDING, TEXT_ASCENDING
-		, TEXT_DESCENDING}
+	private enum TweetListOrdering {
+		/**
+		 * Date ascending tweet list ordering.
+		 */
+		DATE_ASCENDING, /**
+		 * Date descendintext ascending tweet list ordering.
+		 */
+		DATE_DESCENDINTEXT_ASCENDING
+		, /**
+		 * Text descending tweet list ordering.
+		 */
+		TEXT_DESCENDING}
 	private EditText bodyText;
 	private ListView oldTweetsList;
 
@@ -111,6 +121,10 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * Called when the activity starts running
+	 * @see #loadFromFile()
+	 */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -133,6 +147,10 @@ public class LonelyTwitterActivity extends Activity {
 		return inputString;
 	}
 
+	/**
+	 * Sorts items in the tweetlist with a ordering parameter
+	 * @param ordering
+     */
 	private void sortTweetListItems(TweetListOrdering ordering){
 
 	}

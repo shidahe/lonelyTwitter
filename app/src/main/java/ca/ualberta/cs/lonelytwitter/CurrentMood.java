@@ -3,7 +3,14 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by cdkushni on 1/19/17.
+ * Current Mood is a default mood class to represent a mood
+ * that can be used for a tweet message.
+ * It has a date associated along with getters and setters for such.
+ * It also has a abstract getMoodString to use for it's children.
+ *
+ * @author Colin Kushniruk
+ * @version 1.0.1
+ * @since 1.0
  */
 public abstract class CurrentMood {
     private Date date;

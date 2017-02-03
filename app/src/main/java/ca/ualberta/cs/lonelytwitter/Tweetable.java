@@ -1,7 +1,11 @@
 package ca.ualberta.cs.lonelytwitter;
 
 /**
- * Created by cdkushni on 1/19/17.
+ * This is a tweetable interface setting the base for tweets.
+ *
+ * @author Colin Kushniruk
+ * @version 1.0.1
+ * @since 1.0
  */
 public interface Tweetable {
     /**

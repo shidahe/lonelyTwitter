@@ -3,7 +3,13 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by cdkushni on 1/19/17.
+ * This is a child of currentmood that is an pensive mood
+ * It has a private string representing it's mood set to "Pensive"
+ * It inherits from CurrentMood and will use getMoodString() to return "Pensive"
+ *
+ * @author Colin Kushniruk
+ * @version 1.0.1
+ * @since 1.0
  */
 public class PensiveMood extends CurrentMood{
     private String moodString = "Pensive";
@@ -23,6 +29,12 @@ public class PensiveMood extends CurrentMood{
     public PensiveMood(Date date){
         super(date);
     }
+
+    /**
+     * the inherited abstract getMoodString is used to
+     * return the "Pensive" mood string here.
+     * @return
+     */
     public String getMoodString(){
         return moodString;
     }
