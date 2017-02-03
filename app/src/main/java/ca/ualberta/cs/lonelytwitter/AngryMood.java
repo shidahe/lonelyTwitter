@@ -5,12 +5,21 @@ import java.util.Date;
 /**
  * Created by cdkushni on 1/19/17.
  */
-
 public class AngryMood extends CurrentMood{
     private String moodString = "Angry";
+
+    /**
+     * Instantiates a new Angry mood.
+     */
     public AngryMood(){
         super();
     }
+
+    /**
+     * Instantiates a new Angry mood.
+     *
+     * @param date the date
+     */
     public AngryMood(Date date){
         super(date);
     }
