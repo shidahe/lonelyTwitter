@@ -28,12 +28,17 @@ import com.google.gson.reflect.TypeToken;
 
 public class LonelyTwitterActivity extends Activity {
 
+	private LonelyTwitterActivity activity = this;
+
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
 	private ArrayList<NormalTweet> tweetList = new ArrayList<NormalTweet>();
 	private ArrayAdapter<NormalTweet> adapter;
 
+	public ListView getOldTweetsList(){
+		return oldTweetsList;
+	}
 
 
 	@Override
@@ -43,7 +48,7 @@ public class LonelyTwitterActivity extends Activity {
 
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
-		Button searchButton = (Button) findViewById(R.id.search);
+		Button clearButton = (Button) findViewById(R.id.clear);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
@@ -60,10 +65,15 @@ public class LonelyTwitterActivity extends Activity {
 			}
 		});
 
-		searchButton.setOnClickListener(new View.OnClickListener() {
+		clearButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
+				setResult(RESULT_OK);
+				tweetList.clear();
+				deleteFile("file.sav");
+				adapter.notifyDataSetChanged();
 
+				/*
 				ElasticsearchTweetController.GetTweetsTask getTweetsTask = new  ElasticsearchTweetController.GetTweetsTask();
 				String text = bodyText.getText().toString();
 				getTweetsTask.execute(text);
@@ -75,7 +85,19 @@ public class LonelyTwitterActivity extends Activity {
 
 				adapter.clear();
 				adapter.addAll(tweetList);
-				adapter.notifyDataSetChanged();
+				adapter.notifyDataSetChanged();*/
+			}
+		});
+
+		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				Intent intent = new Intent(activity, EditTweetActivity.class);
+
+				final ListView oldTweetsList = activity.getOldTweetsList();
+				Tweet tweet = (Tweet) oldTweetsList.getItemAtPosition(i);
+				String s = tweet.getMessage();
+				intent.putExtra("Index", s);
+				startActivity(intent);
 			}
 		});
 
